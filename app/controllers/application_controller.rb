@@ -26,6 +26,11 @@ class ApplicationController < Sinatra::Base
       erb :show
 
   end
+  get '/posts/:id/edit' do  #load edit form
+    @recipe = Recipe.find_by_id(params[:id])
+    erb :edit
+  end
+  
   delete '/recipes/:id/delete' do
 
   @recipe = Recipe.delete(params[:id])
